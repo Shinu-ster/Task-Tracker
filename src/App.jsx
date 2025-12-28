@@ -16,13 +16,14 @@ const App = () => {
   const debouncedSearch = useDebounce(search);
 
   useEffect(() => {
-    
+    // Fetching Tasks when app loads
     getTasks().then(setTasks);
   }, []);
 
   const handleSave = async (data) => {
     if (editingTask) {
       const updated = await updateTask({ ...editingTask, ...data });
+      // Updating Tasks
       setTasks(tasks.map((t) => (t.id === updated.id ? updated : t)));
     } else {
       const newTask = await createTask(data);
@@ -90,6 +91,7 @@ const App = () => {
 
       <TaskList
         tasks={filteredTasks}
+        totalTasksCount={tasks.length}
         onEdit={(task) => {
           setEditingTask(task);
           setIsModalOpen(true);

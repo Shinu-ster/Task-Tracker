@@ -1,7 +1,21 @@
 import TaskItem from "./TaskItem";
 
-const TaskList = ({ tasks, onEdit, onDelete, onToggleStatus }) => {
-  if (!tasks.length) return <p className="text-gray-500">No tasks found.</p>;
+const TaskList = ({
+  tasks,
+  totalTasksCount,
+  onEdit,
+  onDelete,
+  onToggleStatus,
+}) => {
+  if(totalTasksCount === 0){
+    return (
+      <p className="text-gray-500 text-center" >
+        No tasks yet. Add new tasks
+      </p>
+    )
+  }
+
+  if (tasks.length === 0) return <p className="text-gray-500">:( No such tasks found.</p>;
 
   return (
     <div className="space-y-3">
