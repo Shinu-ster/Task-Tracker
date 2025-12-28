@@ -47,14 +47,20 @@ const TaskForm = ({ isOpen, onClose, onSubmit, initialData }) => {
           required
         />
 
-        <select
-          className="w-full border rounded p-2"
-          value={status}
-          onChange={(e) => setStatus(e.target.value)}
-        >
-          <option>Pending</option>
-          <option>Done</option>
-        </select>
+        {!initialData ? (
+          <></>
+        ) : (
+          <>
+            <select
+              className="w-full border rounded p-2"
+              value={status}
+              onChange={(e) => setStatus(e.target.value)}
+            >
+              <option>Pending</option>
+              <option>Done</option>
+            </select>
+          </>
+        )}
 
         <button className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700">
           Save

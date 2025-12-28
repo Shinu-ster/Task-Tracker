@@ -16,6 +16,7 @@ const App = () => {
   const debouncedSearch = useDebounce(search);
 
   useEffect(() => {
+    
     getTasks().then(setTasks);
   }, []);
 
@@ -42,9 +43,28 @@ const App = () => {
       return 0;
     });
 
+  const handleToggleStatus = async (updatedTask) => {
+    await updateTask(updatedTask);
+
+    setTasks((prevTasks) => {
+      const updatedTasks = prevTasks.map((t) =>
+        t.id === updatedTask.id ? updatedTask : t
+      );
+
+      // Move Done tasks to bottom
+      return updatedTasks.sort((a, b) => {
+        if (a.status === b.status) return 0;
+        if (a.status === "Done") return 1;
+        return -1;
+      });
+    });
+  };
+
   return (
     <div className="max-w-2xl mx-auto p-6">
-      <h1 className="text-3xl font-bold mb-4 bg-[#5A7ACD] p-4 text-center text-white">Task Tracker</h1>
+      <h1 className="text-3xl font-bold mb-4 bg-[#5A7ACD] p-4 text-center text-white">
+        Task Tracker
+      </h1>
 
       <div className="flex mb-4 gap-2">
         <input
@@ -57,7 +77,7 @@ const App = () => {
           onClick={() => setIsModalOpen(true)}
           className="bg-[#2B2A2A] text-white px-4 rounded"
         >
-          + Add
+          + Add New Task
         </button>
       </div>
 
@@ -78,6 +98,7 @@ const App = () => {
           await deleteTask(id);
           setTasks(tasks.filter((t) => t.id !== id));
         }}
+        onToggleStatus={handleToggleStatus}
       />
 
       <TaskForm
