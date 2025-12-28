@@ -15,7 +15,7 @@ const TaskList = ({
     )
   }
 
-  if (tasks.length === 0) return <p className="text-gray-500">:( No such tasks found.</p>;
+  if (tasks.length === 0) return <p className="text-gray-500 text-center">:( No such tasks found.</p>;
 
   return (
     <div className="space-y-3">

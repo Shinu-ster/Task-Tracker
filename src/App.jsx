@@ -76,7 +76,7 @@ const App = () => {
         />
         <button
           onClick={() => setIsModalOpen(true)}
-          className="bg-[#2B2A2A] text-white px-4 rounded"
+          className="bg-[#2B2A2A] text-white px-4 rounded hover:cursor-pointer"
         >
           + Add New Task
         </button>

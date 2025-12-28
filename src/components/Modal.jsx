@@ -1,3 +1,5 @@
+import { MdOutlineCancel } from "react-icons/md";
+
 const Modal = ({ isOpen, onClose, children }) => {
   if (!isOpen) return null;
 
@@ -6,9 +8,9 @@ const Modal = ({ isOpen, onClose, children }) => {
       <div className="bg-white rounded-lg p-6 w-full max-w-md relative">
         <button
           onClick={onClose}
-          className="absolute top-2 right-3 text-gray-500 hover:text-black"
+          className="absolute top-6  right-6 text-gray-500 hover:text-black cursor-pointer"
         >
-          ✕
+         < MdOutlineCancel size={22} color="#F4320B" />
         </button>
         {children}
       </div>

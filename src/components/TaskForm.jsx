@@ -62,7 +62,7 @@ const TaskForm = ({ isOpen, onClose, onSubmit, initialData }) => {
           </>
         )}
 
-        <button className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700">
+        <button className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 cursor-pointer">
           Save
         </button>
       </form>
