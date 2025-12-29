@@ -24,6 +24,7 @@ const TaskForm = ({ isOpen, onClose, onSubmit, initialData }) => {
     onSubmit({ title, dueDate, status });
   };
 
+  const today = new Date().toISOString().split("T")[0];
   return (
     <Modal isOpen={isOpen} onClose={onClose}>
       <h2 className="text-xl font-semibold mb-4">
@@ -43,6 +44,7 @@ const TaskForm = ({ isOpen, onClose, onSubmit, initialData }) => {
           type="date"
           className="w-full border rounded p-2"
           value={dueDate}
+          min={today}
           onChange={(e) => setDueDate(e.target.value)}
           required
         />
