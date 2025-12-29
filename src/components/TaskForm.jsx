@@ -17,7 +17,7 @@ const TaskForm = ({ isOpen, onClose, onSubmit, initialData }) => {
       setDueDate("");
       setStatus("Pending");
     }
-  }, [initialData]);
+  }, [initialData, isOpen]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
