@@ -2,7 +2,7 @@ const SearchAndFilter = ({ filter, setFilter, sort, setSort }) => {
   return (
     <div className="flex gap-6 mb-4 items-center">
       {/* Filter by Status */}
-      <p className="text-[#5A7ACD]">Filter By Status:</p>
+      <p className="text-[#5A7ACD] hidden sm:block">Filter By Status:</p>
       <select
         className="border rounded p-2"
         value={filter}
@@ -17,7 +17,7 @@ const SearchAndFilter = ({ filter, setFilter, sort, setSort }) => {
       </select>
 
       {/* Sort */}
-      <p className="text-[#5A7ACD]">Sort By:</p>
+      <p className="text-[#5A7ACD] hidden sm:block">Sort By:</p>
       <select
         className="border rounded p-2"
         value={sort}

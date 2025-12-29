@@ -46,7 +46,7 @@ const TaskItem = ({ task, onEdit, onDelete, onToggleStatus }) => {
         {/* Edit */}
         <button
           onClick={() => onEdit(task)}
-          className="p-2  hover:bg-blue-100 rounded-xl text-blue-600  transition"
+          className="p-2  hover:bg-blue-100 rounded-xl text-blue-600 cursor-pointer transition"
           title="Edit task"
         >
           <FiEdit2 size={18} />
@@ -59,7 +59,7 @@ const TaskItem = ({ task, onEdit, onDelete, onToggleStatus }) => {
               onDelete(task.id);
             }
           }}
-          className="p-2 rounded-xl hover:bg-red-100 text-red-600 transition"
+          className="p-2 rounded-xl hover:bg-red-100 text-red-600 cursor-pointer transition"
           title="Delete task"
         >
           <FiTrash2 size={18} />
